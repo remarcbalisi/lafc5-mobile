@@ -1,1 +1,43 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mainContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Profile
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="side-menu21" style="background-color:#33CD5F;">
+    <ion-card id="profile-card21">
+      <ion-list>
+        <ion-item color="balanced" id="profile-list-item3">
+          <ion-icon name="person" item-left></ion-icon>
+          Regine Laguting
+        </ion-item>
+        <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+          <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+        </div>
+        <ion-item id="profile-list-item-container10">
+          <div id="profile-markdown13" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#504E4E;">
+              ID: 111
+            </p>
+            <p style="color:#504E4E;">
+              Team Leader
+            </p>
+            <p style="color:#504E4E;">
+              IT Department
+            </p>
+            <p style="color:#504E4E;">
+              Phone number: 090909090
+            </p>
+            <p style="color:#504E4E;">
+              Lahug, Cebu City
+            </p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mainContent [root]="rootPage"></ion-nav>
