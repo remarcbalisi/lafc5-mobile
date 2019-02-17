@@ -1,39 +1,53 @@
 <ion-menu [content]="mainContent">
-  <ion-header>
+    
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-title>
         Profile
       </ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
+  
   <ion-content id="side-menu21" style="background-color:#33CD5F;">
-    <ion-card id="profile-card21">
+    <img src="assets/img/fircecom-logo.png" style="display:block;width:30%;height:auto;margin-left:auto;margin-right:auto;margin-top: 5%;margin-bottom: 6%;" />
       <ion-list>
-        <ion-item color="balanced" id="profile-list-item3">
-          <ion-icon name="person" item-left></ion-icon>
-          Regine Laguting
-        </ion-item>
         <ion-item id="profile-list-item-container10">
           <div id="profile-markdown13" class="show-list-numbers-and-dots">
-            <p style="margin-top:0px;color:#504E4E;">
-              ID: 111
+          <p style="margin-top:0px;color:white;font-size:30px;text-align: center;font-weight:bold;margin-bottom:10%;">
+              Regine Laguting
             </p>
-            <p style="color:#504E4E;">
-              Team Leader
+            <p id="user-info">
+                <ion-icon name="clipboard" color="dark"></ion-icon>&nbsp; &nbsp; Leave credits: 50
             </p>
-            <p style="color:#504E4E;">
-              IT Department
+            <hr>
+            <p id="user-info">
+                <ion-icon  md="md-contact"  color="dark"></ion-icon> &nbsp; &nbsp;ID: 111
             </p>
-            <p style="color:#504E4E;">
-              Phone number: 090909090
+            <hr>
+            <p id="user-info">
+                <ion-icon ios="ios-man" md="md-man"  color="dark"></ion-icon> &nbsp; &nbsp;Team Leader
             </p>
-            <p style="color:#504E4E;">
-              Lahug, Cebu City
+            <hr>
+            <p id="user-info">
+                <ion-icon  md="md-home"  color="dark"></ion-icon> &nbsp; &nbsp; IT Department
+            </p>
+            <hr>
+            <p id="user-info">
+                <ion-icon ios="ios-call" md="md-call"  color="dark"></ion-icon> &nbsp; &nbsp;090909090
+            </p>
+            <hr>
+            <p id="user-info">
+                <ion-icon ios="ios-pin" md="md-pin"  color="dark"></ion-icon>&nbsp; &nbsp;  Lahug, Cebu City
             </p>
           </div>
         </ion-item>
       </ion-list>
-    </ion-card>
+      <ion-footer>
+        <ion-title>
+          <!-- <button ion-button color="dark" large>Dark Large</button> -->
+        <button ion-button full  color="dark"  medium >  <ion-icon name="log-out"></ion-icon>&nbsp; &nbsp;Log Out</button>
+      </ion-title>
+        </ion-footer>
   </ion-content>
 </ion-menu>
 
