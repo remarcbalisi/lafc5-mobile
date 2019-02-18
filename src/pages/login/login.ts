@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ApplyLeavePage } from '../apply-leave/apply-leave';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'

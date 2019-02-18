@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 
-import { ApplyLeavePage } from '../pages/apply-leave/apply-leave';
+// import { ApplyLeavePage } from '../pages/apply-leave/apply-leave';
 import { LoginPage } from '../pages/login/login';
 
 
