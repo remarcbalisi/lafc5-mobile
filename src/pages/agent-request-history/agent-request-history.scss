@@ -1,0 +1,20 @@
+page-agent-request-history {
+.Approved{
+    border:1px solid #32db64;
+    background-color: #32db64;
+    color:white;
+    padding: 10px;
+}
+.denied{
+    border:1px solid #f53d3d;
+    background-color: #f53d3d;
+    color:white;
+    padding: 10px;
+}
+.pending{
+    border:1px solid #488aff;
+    background-color: #488aff;
+    color:white;
+    padding: 10px;
+}
+}
