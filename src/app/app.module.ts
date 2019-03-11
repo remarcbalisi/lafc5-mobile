@@ -8,7 +8,11 @@ import { LeaveRequestPage } from '../pages/leave-request/leave-request';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { NoticationContentPage } from '../pages/notication-content/notication-content';
 import { LoginPage } from '../pages/login/login';
-
+import { AgentApplyLeavePage } from '../pages/agent-apply-leave/agent-apply-leave';
+import { AgentNotificationPage } from '../pages/agent-notification/agent-notification';
+import { AgentRequestHistoryPage } from '../pages/agent-request-history/agent-request-history';
+import { AgentTabscontrollerPage } from '../pages/agent-tabscontroller/agent-tabscontroller';
+import { NotificationDetailsPage } from '../pages/notification-details/notification-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,6 +26,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsControllerPage,
     NoticationContentPage,
     LoginPage,
+    AgentApplyLeavePage,
+    AgentNotificationPage,
+    AgentRequestHistoryPage,
+    AgentTabscontrollerPage,
+    NotificationDetailsPage,
   
   ],
   imports: [
@@ -37,6 +46,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsControllerPage,
     NoticationContentPage,
     LoginPage,
+    AgentApplyLeavePage,
+    AgentNotificationPage,
+    AgentRequestHistoryPage,
+    AgentTabscontrollerPage,
+    NotificationDetailsPage,
    
   ],
   providers: [
@@ -46,3 +60,5 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ]
 })
 export class AppModule {}
+
+
