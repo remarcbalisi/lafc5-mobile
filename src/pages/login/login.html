@@ -7,15 +7,15 @@
     <ion-list id="login-list6">
       <ion-item id="login-input9">
       <ion-label floating> <ion-icon  md="md-mail"></ion-icon>&nbsp;&nbsp;Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input name="email" [(ngModel)]="email" type="email"></ion-input>
       </ion-item>
       <ion-item id="login-input10">
         <ion-label floating>  <ion-icon ios="ios-lock" md="md-lock"></ion-icon>&nbsp;&nbsp;Password</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input name="password" [(ngModel)]="password" type="password"></ion-input>
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:40px;" id="login-spacer4"></div>
-    <button id="login-button6" ion-button color="secondary" block on-click="goToTabs()">
+    <button id="login-button6" ion-button color="secondary" block on-click="logIn()">
       Log in
     </button>
   </form>
