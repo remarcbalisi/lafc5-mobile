@@ -74,4 +74,18 @@ export class ApiProvider {
     return this.http.post(URL + 'auth/logout', null, options);
   }
 
+  admin_get_leaverequests(token) {
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    let options = {
+      headers: header
+    }
+
+    return this.http.get(URL + 'admin/leave-requests', options);
+  }
+
 }

@@ -17,21 +17,21 @@
         <ion-avatar item-start>
             <img src="assets/img/fircecom-logo.png">
           </ion-avatar>
-          <h2>Regine Laguting</h2>
+          <h2>{{leave?.owner.fname}} {{leave?.owner.lname}}</h2>
         </ion-item>
       <ion-item id="noticationContent-list-item-container8">
         <div id="noticationContent-markdown10" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
-            From: feb 14, 2019 - To: feb 15, 2019
+            From: {{leave?.leave_start_date}} - To: {{leave?.leave_end_date}}
           </p>
           <p style="color:#000000;">
-            ID: 111
+            ID: {{leave?.owner.employee_id}}
           </p>
           <p style="color:#000000;">
-            IT Department
+            {{leave?.department}}
           </p>
           <p style="color:#000000;">
-            Lahug
+            {{leave?.address[0]}}
           </p>
         </div>
       </ion-item>
