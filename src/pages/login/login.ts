@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AgentTabscontrollerPage } from '../agent-tabscontroller/agent-tabscontroller';
+import { MyApp } from '../../app/app.component';
 
 @Component({
   selector: 'page-login',
@@ -18,6 +19,8 @@ export class LoginPage {
   public password = '';
   public loader;
   public alert;
+  public auth_user;
+  public my_role;
 
   constructor(
     public navCtrl: NavController,
@@ -43,25 +46,32 @@ export class LoginPage {
       this.storage.set('access_token', resp.access_token).then(val=>{
         this.api.getToken().then(token=>{
           this.api.me(token).subscribe(response=>{
-            let resp : any;
-            resp = response;
-            var is_admin = 0;
-            resp.roles.forEach(role_el => {
-              if(role_el.role_id == 1){
-                is_admin = 1;
-              }
-            });
-            this.loader.dismiss();
-            if( is_admin == 1 ){
-              this.navCtrl.push(TabsControllerPage);
-            }else{
-              this.navCtrl.push(AgentTabscontrollerPage);
-            }
+
+            // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+            this.navCtrl.push(MyApp);
+            // let resp : any;
+            // resp = response;
+            // this.auth_user = resp;
+            // var is_admin = 0;
+            // resp.roles.forEach(role_el => {
+            //   if(role_el.role_id == 1){
+            //     is_admin = 1;
+            //   }
+            // });
+            
+            // this.api.my_roles(token).subscribe(response=>{
+            //   this.my_role = response;
+            // });
+
+            // if( is_admin == 1 ){
+            //   this.navCtrl.push(TabsControllerPage);
+            // }else{
+            //   this.navCtrl.push(AgentTabscontrollerPage);
+            // }
           });
         });
       });
     }, err=>{
-      this.loader.dismiss();
       this.showAlert('Invalid Credentials', 'Wrong email/password');
     });
   }

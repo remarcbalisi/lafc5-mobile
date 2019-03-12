@@ -1,4 +1,4 @@
-<ion-menu [content]="mainContent">
+<ion-menu *ngIf="auth_user" [content]="mainContent">
     
   <!-- <ion-header>
     <ion-toolbar>
@@ -14,30 +14,30 @@
         <ion-item id="profile-list-item-container10">
           <div id="profile-markdown13" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:white;font-size:30px;text-align: center;font-weight:bold;margin-bottom:10%;">
-              Regine Laguting
-            </p>
+              {{auth_user?.fname}} {{auth_user?.lname}}
+            </p>                
             <p id="user-info">
-                <ion-icon name="clipboard" color="dark"></ion-icon>&nbsp; &nbsp; Leave credits: 50
-            </p>
-            <hr>
-            <p id="user-info">
-                <ion-icon  md="md-contact"  color="dark"></ion-icon> &nbsp; &nbsp;ID: 111
+                <ion-icon name="clipboard" color="dark"></ion-icon>&nbsp; &nbsp; Leave credits: {{auth_user?.leave_credits}}
             </p>
             <hr>
             <p id="user-info">
-                <ion-icon ios="ios-man" md="md-man"  color="dark"></ion-icon> &nbsp; &nbsp;Team Leader
+                <ion-icon  md="md-contact"  color="dark"></ion-icon> &nbsp; &nbsp;ID: {{auth_user?.employee_id}}
             </p>
             <hr>
             <p id="user-info">
-                <ion-icon  md="md-home"  color="dark"></ion-icon> &nbsp; &nbsp; IT Department
+                <ion-icon ios="ios-man" md="md-man"  color="dark"></ion-icon> &nbsp; &nbsp;{{my_role}}
             </p>
             <hr>
             <p id="user-info">
-                <ion-icon ios="ios-call" md="md-call"  color="dark"></ion-icon> &nbsp; &nbsp;090909090
+                <ion-icon  md="md-home"  color="dark"></ion-icon> &nbsp; &nbsp; {{auth_user?.department.name}}
             </p>
             <hr>
             <p id="user-info">
-                <ion-icon ios="ios-pin" md="md-pin"  color="dark"></ion-icon>&nbsp; &nbsp;  Lahug, Cebu City
+                <ion-icon ios="ios-call" md="md-call"  color="dark"></ion-icon> &nbsp; &nbsp;{{auth_user?.contacts[0].country_code}} {{auth_user?.contacts[0].number}}
+            </p>
+            <hr>
+            <p id="user-info">
+                <ion-icon ios="ios-pin" md="md-pin"  color="dark"></ion-icon>&nbsp; &nbsp;  {{auth_user?.address[0]}}
             </p>
           </div>
         </ion-item>
@@ -45,7 +45,7 @@
       <ion-footer>
         <ion-title>
           <!-- <button ion-button color="dark" large>Dark Large</button> -->
-        <button ion-button full  color="dark"  medium >  <ion-icon name="log-out"></ion-icon>&nbsp; &nbsp;Log Out</button>
+        <button ion-button full  color="dark"  medium (click)="logout()">  <ion-icon name="log-out"></ion-icon>&nbsp; &nbsp;Log Out</button>
       </ion-title>
         </ion-footer>
   </ion-content>

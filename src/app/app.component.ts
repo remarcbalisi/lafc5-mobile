@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, LoadingController } from 'ionic-angular';
+import { Platform, Nav, LoadingController, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AgentTabscontrollerPage } from '../pages/agent-tabscontroller/agent-tabscontroller';
@@ -22,6 +22,8 @@ export class MyApp {
     rootPage: any;
 
   public loader;
+  public auth_user;
+  public my_role;
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private api: ApiProvider, public loadingCtrl: LoadingController,) {
     platform.ready().then(() => {
@@ -34,6 +36,7 @@ export class MyApp {
         this.api.me(token).subscribe(response=>{
           let resp : any;
           resp = response;
+          this.auth_user = resp;
 
           if( response ){
             var is_admin = 0;
@@ -47,8 +50,14 @@ export class MyApp {
             }else{
               this.rootPage = AgentTabscontrollerPage;
             }
+
+            this.api.my_roles(token).subscribe(response=>{
+              this.my_role = response;
+            });
+
           }
         },err=>{
+          console.log('error')
           this.rootPage = LoginPage;
         });
       });
@@ -61,6 +70,15 @@ export class MyApp {
       duration: 3000
     });
     this.loader.present();
+  }
+
+  logout(){
+    this.api.getToken().then(token=>{
+      this.api.logout(token).subscribe(response=>{
+        this.auth_user = null;
+        this.navCtrl.push(MyApp);
+      });
+    });    
   }
   
 }

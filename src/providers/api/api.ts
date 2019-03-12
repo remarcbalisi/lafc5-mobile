@@ -46,4 +46,32 @@ export class ApiProvider {
 
   }
 
+  my_roles(token){
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    let options = {
+      headers: header
+    }
+
+    return this.http.get(URL + 'my-roles', options);
+  }
+
+  logout(token){
+    let header = new HttpHeaders({
+      'Authorization': 'Bearer ' + token
+    });
+    console.log(header);
+    console.log(token);
+
+    let options = {
+      headers: header
+    }
+
+    return this.http.post(URL + 'auth/logout', null, options);
+  }
+
 }
