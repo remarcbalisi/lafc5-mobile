@@ -21,11 +21,11 @@
             </ion-avatar>
             <h2>{{leave_request?.owner.fname}} {{leave_request?.owner.lname}}</h2>
           </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="danger">
+      <ion-item-options *ngIf="leave_request.owner.id != auth_user?.id" side="left">
+        <button (click)="approveDisapprove(leave_request, 0)" ion-button color="danger">
           Denied
         </button>
-        <button ion-button color="secondary">
+        <button (click)="approveDisapprove(leave_request, 1)" ion-button color="secondary">
           Approved
         </button>
       </ion-item-options>

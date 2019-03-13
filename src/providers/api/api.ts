@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-const URL = 'http://leave.fiercecom.net/api/'
+const URL = 'http://leave.fiercecom.net/api/';
+
 @Injectable()
 export class ApiProvider {
 
@@ -86,6 +87,20 @@ export class ApiProvider {
     }
 
     return this.http.get(URL + 'admin/leave-requests', options);
+  }
+
+  admin_approve_disapprove(token, leave_id, action, note) {
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    let options = {
+      headers: header
+    }
+
+    return this.http.get(URL + `admin/approve-disapprove/${leave_id}/${action}/${note}`, options);
   }
 
 }

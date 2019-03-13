@@ -11,12 +11,19 @@ export class LeaveRequestPage {
   
   public leave_requests : any;
   public loader;
+  public auth_user : any;
 
   constructor(
     public navCtrl: NavController,
     private api: ApiProvider,
     public loadingCtrl: LoadingController,
     ) {
+
+      this.api.getToken().then(token=>{
+        this.api.me(token).subscribe(response=>{
+          this.auth_user = response;
+        });
+      });
   }
   goToNoticationContent(params){
     if (!params) params = {};
@@ -35,6 +42,15 @@ export class LeaveRequestPage {
         console.log(response);
         this.loader.dismiss();
       })
+    });
+  }
+
+  approveDisapprove(leave_request, action){
+    console.log(leave_request);
+    this.api.getToken().then(token=>{
+      this.api.admin_approve_disapprove(token, leave_request.id, action, 'n-a').subscribe(response=>{
+        console.log(response);
+      });
     });
   }
 

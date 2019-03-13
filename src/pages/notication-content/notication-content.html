@@ -33,14 +33,17 @@
           <p style="color:#000000;">
             {{leave?.address[0]}}
           </p>
+          <p style="color:#000000;">
+            Status: {{leave?.leave_status.name}}
+          </p>
         </div>
       </ion-item>
       
     </ion-list>
   </ion-card>
 
-  <ion-grid>
-    <ion-row>
+  <ion-grid *ngIf="auth_user">
+    <ion-row *ngIf="auth_user.id != leave.owner.id">
       <ion-col col-6>
           <button id="noticationContent-button4" ion-button full color="secondary">
               Approved
