@@ -18,47 +18,41 @@
           <ion-label>
             Leave Type
           </ion-label>
-          <ion-select name="">
-            <ion-option>
-              Vacation Leave
-            </ion-option>
-            <ion-option>
-              Sick Leave
-            </ion-option>
-            <ion-option>
-              Vacation Leave
+          <ion-select name="leave_type" [(ngModel)]="leave_type">
+            <ion-option *ngFor="let leave_type of leave_types" value="{{leave_type.id}}">
+              {{leave_type.name}}
             </ion-option>
           </ion-select>
         </ion-item>
        <ion-item>
           <ion-label>Start Date</ion-label>
-          <ion-datetime display-format="MMM DD, YYYY HH:mm"></ion-datetime>
+          <ion-datetime name="start_date" [(ngModel)]="start_date" display-format="MMM DD, YYYY HH:mm"></ion-datetime>
         </ion-item>
       </form>
       <form id="applyLeave-form6">
       <ion-item>
           <ion-label>End Date</ion-label>
-          <ion-datetime display-format="MMM DD, YYYY HH:mm"></ion-datetime>
+          <ion-datetime name="end_date" [(ngModel)]="end_date" display-format="MMM DD, YYYY HH:mm"></ion-datetime>
         </ion-item>
         <ion-item id="applyLeave-input6">
             <ion-label fixed>Address</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input name="leave_address" [(ngModel)]="leave_address" type="text"></ion-input>
         </ion-item>
         <ion-item id="applyLeave-input7">
             <ion-label fixed>Phone #</ion-label>
-          <ion-input type="Number"></ion-input>
+          <ion-input name="contact" [(ngModel)]="contact" type="Number"></ion-input>
         </ion-item>
         <ion-item id="applyLeave-textarea1">
           <ion-label>
             Note
           </ion-label>
-          <ion-textarea placeholder=""></ion-textarea>
+          <ion-textarea name="note" [(ngModel)]="note" placeholder=""></ion-textarea>
         </ion-item>
       </form>
     </ion-list>
   </ion-card>
   <div class="spacer" style="width:300px;height:20px;" id="applyLeave-spacer1"></div>
-  <button id="applyLeave-button1" ion-button color="secondary" block style="font-weight:bold;font-size:19px;border-radius:-4px -4px -4px -4px;">
+  <button (click)="apply()" id="applyLeave-button1" ion-button color="secondary" block style="font-weight:bold;font-size:19px;border-radius:-4px -4px -4px -4px;">
     Apply
   </button>
 </ion-content>

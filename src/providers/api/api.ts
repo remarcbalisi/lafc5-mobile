@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
@@ -102,6 +102,36 @@ export class ApiProvider {
     }
 
     return this.http.get(URL + `admin/approve-disapprove/${leave_id}/${user_id}/${action}/${note}`, options);
+  }
+
+  apply_leave(token, params) {
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    let options = {
+      headers: header
+    }
+
+    let httpParams = new HttpParams(params);
+
+    return this.http.post(`${URL}admin/apply`, params, options);
+  }
+
+  leave_types(token) {
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+
+    let options = {
+      headers: header
+    }
+
+    return this.http.get(`${URL}leave_type`, options);
   }
 
 }
